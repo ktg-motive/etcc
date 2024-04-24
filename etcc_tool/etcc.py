@@ -11,7 +11,7 @@ template_path = 'apps/etcc/templates'
 emissions_data = pd.read_csv("static/emissions.csv")
 
 etcc = Blueprint(
-    'etcc', 'etcc_tool',
+    'etcc',
     __name__, 
     template_folder=os.path.join(os.path.dirname(__file__), 'templates'),
     static_folder=os.path.join(os.path.dirname(__file__), 'static'),
@@ -133,5 +133,7 @@ def upload():
         return render_template('result.html', data=data.to_html())
 
 
+app.register_blueprint(etcc)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8888, debug=True)
