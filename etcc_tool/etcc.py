@@ -6,16 +6,17 @@ from math import radians, sin, cos, acos
 import io
 import os
 
-template_path = 'apps/etcc/templates'
-
-emissions_data = pd.read_csv("static/emissions.csv")
+template_path = 'etcc/etcc_tool/templates'
+current_dir = os.path.dirname(os.path.abspath(__file__))
+emissions_csv_path = os.path.join(current_dir, 'static/emissions.csv')
+emissions_data = pd.read_csv(emissions_csv_path)
 
 etcc = Blueprint(
     'etcc',
-    __name__, 
+    __name__,
     template_folder=os.path.join(os.path.dirname(__file__), 'templates'),
     static_folder=os.path.join(os.path.dirname(__file__), 'static'),
-    static_url_path='/etcc/static' 
+    static_url_path='/etcc/static'
 )
 
 
