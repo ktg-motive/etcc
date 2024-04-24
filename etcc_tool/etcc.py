@@ -24,7 +24,7 @@ etcc = Blueprint(
 
 def get_db_connection():
     current_directory = os.path.dirname(os.path.abspath(__file__))
-    db_path = os.path.join(current_directory, '..', '..', 'airports.db')
+    db_path = os.path.join(os.path.dirname(current_directory), 'airports.db')
     return sqlite3.connect(db_path)
 
 @etcc.route('/get_airports', methods=['GET'])
