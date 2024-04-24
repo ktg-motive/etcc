@@ -6,16 +6,16 @@ from math import radians, sin, cos, acos
 import io
 import os
 
-template_path = 'apps/air_travel_calculator/templates'
+template_path = 'apps/etcc/templates'
 
 emissions_data = pd.read_csv("static/emissions.csv")
 
-air_travel = Blueprint(
-    'air_travel', 
+etcc = Blueprint(
+    'etcc', 
     __name__, 
     template_folder=os.path.join(os.path.dirname(__file__), 'templates'),
     static_folder=os.path.join(os.path.dirname(__file__), 'static'),
-    static_url_path='/air_travel/static' 
+    static_url_path='/etcc/static' 
 )
 
 
@@ -24,7 +24,7 @@ def get_db_connection():
     db_path = os.path.join(current_directory, '..', '..', 'airports.db')
     return sqlite3.connect(db_path)
 
-@air_travel.route('/get_airports', methods=['GET'])
+@etcc.route('/get_airports', methods=['GET'])
 def get_airports():
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -44,12 +44,12 @@ def calculate_kilometers_flown(departure_code, arrival_code, travel_type):
     distance = acos(sin(lat1) * sin(lat2) + cos(lat1) * cos(lat2) * cos(lon2 - lon1)) * 6371.0 # km
     return distance * 2 if travel_type == 'RETURN' else distance
 
-@air_travel.route('/')
+@etcc.route('/')
 def index():
     airports = get_airports()
     print("Air Travel Index Called")
     print("Template Folder:", template_path)
-    return render_template('air_travel_index.html', airports=airports)
+    return render_template('etcc_index.html', airports=airports)
     return airports
 
 
@@ -78,7 +78,7 @@ def calculate_emissions(kilometers_travelled, travel_class):
     # Calculate and return the total emissions
     return kilometers_travelled * emissions_factor
 
-@air_travel.route('/calculate', methods=['GET', 'POST'])
+@etcc.route('/calculate', methods=['GET', 'POST'])
 def calculate():
     trips = []
     total_kilometers_flown = 0
@@ -123,7 +123,7 @@ def calculate():
 
 
 
-@air_travel.route('/upload', methods=['POST'])
+@etcc.route('/upload', methods=['POST'])
 def upload():
     file = request.files['file']
     if file:
