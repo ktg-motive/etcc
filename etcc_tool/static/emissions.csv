@@ -1,0 +1,4 @@
+Kilometers Travelled,Economy,Premium Economy,Business,First
+< 463.5,0.171,0.171,0.171,0.171
+>= 463.5 - <1107.2,0.093,0.093,0.139,0.139
+>=1107.2,0.083,0.132,0.240,0.331
