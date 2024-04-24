@@ -11,7 +11,7 @@ template_path = 'apps/etcc/templates'
 emissions_data = pd.read_csv("static/emissions.csv")
 
 etcc = Blueprint(
-    'etcc', 
+    'etcc', 'etcc_tool',
     __name__, 
     template_folder=os.path.join(os.path.dirname(__file__), 'templates'),
     static_folder=os.path.join(os.path.dirname(__file__), 'static'),
@@ -49,7 +49,7 @@ def index():
     airports = get_airports()
     print("Air Travel Index Called")
     print("Template Folder:", template_path)
-    return render_template('etcc_index.html', airports=airports)
+    return render_template('etcc.html', airports=airports)
     return airports
 
 
