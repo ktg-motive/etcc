@@ -6,6 +6,8 @@ from math import radians, sin, cos, acos
 import io
 import os
 
+app = Flask(__name__)
+
 template_path = 'etcc/etcc_tool/templates'
 current_dir = os.path.dirname(os.path.abspath(__file__))
 emissions_csv_path = os.path.join(current_dir, 'static/emissions.csv')
@@ -132,7 +134,6 @@ def upload():
         data = pd.read_csv(content)
         data['MILES FLOWN'] = data.apply(lambda row: calculate_miles_flown(row['Departure'], row['Arrival'], row['Travel Type']), axis=1)
         return render_template('result.html', data=data.to_html())
-
 
 app.register_blueprint(etcc)
 
