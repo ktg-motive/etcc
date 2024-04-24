@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Travel Calculator - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Air Travel Calculator - Results</h1>
+
+    <!-- Displaying Single Calculation Result -->
+    {% if miles_flown %}
+        <h2>Miles Flown: {{ miles_flown | round(2) }} miles</h2>
+    {% endif %}
+
+    <!-- Displaying CSV Calculation Results -->
+    {% if data %}
+        <h2>Calculation Results from CSV:</h2>
+        {{ data | safe }}
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('air_travel.index') }}">Go Back</a>
+</body>
+</html>

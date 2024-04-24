@@ -1,0 +1,248 @@
+
+
+@font-face {
+  font-family: 'Europa-Bold';
+  src: url('/static/fonts/EUROPA-BOLD.TTF');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Europa-BoldItalic';
+  src: url('/static/fonts/EUROPA-BOLDITALIC.TTF');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Europa-Light';
+  src: url('/static/fonts//EUROPA-LIGHT.TTF');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Europa-LightItalic';
+  src: url('/static/fonts/EUROPA-LIGHTITALIC.TTF');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Europa-Regular';
+  src: url('/static/fonts/EUROPA-REGULAR.TTF');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Europa-RegularItalic';
+  src: url('/static/fonts/EUROPA-REGULARITALIC.TTF');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Styles for Labels */
+.form-container label {
+    font-family: "Europa-bold", sans-serif;
+    font-size: 14px;
+}
+
+h1 {
+  font-family: 'europa-bold', sans-serif; /* Adjust the font if needed */
+  font-size: 24px; /* Adjust the size if needed */
+  color: var(--black);
+}
+
+h1 {
+  font-family: 'europa-bold', sans-serif; /* Adjust the font if needed */
+  font-size: 24px; /* Adjust the size if needed */
+  color: var(--whi);
+}
+
+/* Styles for Input Fields and Dropdowns */
+.form-container select,
+.form-container input {
+    border-radius: 25px;
+    background-color: #06752E;
+    color: white;
+    font-family: "Europa-bold";
+    font-size: 13px;
+    border:.5;
+    border-color: #06223F;
+    padding: 10px;
+}
+
+/* Styles for Table Container */
+.trips-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+/* Styles for Form Container */
+.form-container {
+    flex: 1;
+}
+
+/* Styles for Table */
+#trips-table {
+    background-color: white;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#trips-table th {
+    background-color: #06223F;
+    color: white;
+}
+
+#trips-table td,
+#trips-table th {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+label {
+    font-family: "Europa-regular";
+    font-size: 14px;
+}
+
+input, select {
+    border-radius: 5px;
+    font-family: "Europa-regular";
+    border-radius: 25px;
+    border:.5;
+    border-color: #06223F;
+    padding: 10px;
+}
+
+.trip-table-container {
+    float: left;
+    padding: 20px;
+}
+
+#trip-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    font-family: "Europa-Regular";
+}
+
+#trip-table th {
+    background-color: #06223F;
+    color: white;
+}
+
+#trip-table th, #trip-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.total-container {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-family: "Europa-Regular";
+    font-size: 14px;
+    background-color: #06223F;
+    color: white;
+    border-radius: 5px;
+}
+
+.button-rounded {
+    border-radius: 25px;
+    background-color: #06752E;
+    color: white;
+    font-family: "Europa-Bold";
+    font-size: 13px;
+    border:.5;
+    border-color: #06223F;
+    padding: 10px;
+}
+
+.button-rounded-trip {
+    border-radius: 25px;
+    background-color: #06752E;
+    color: white;
+    font-family: "Europa-bold";
+    font-size: 13px;
+    border:1;
+    border-color: #06223F;
+    padding: 10px;
+    width: 100px !important;
+    flex-direction: left;
+    margin-right: auto; 
+    margin-left: 0;
+}
+
+/* Styles for Table Container */
+.trips-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.trip-input-row {
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: space-between; /* Adjusts the spacing between elements */
+}
+
+.trip-input-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the left */
+    flex-wrap: wrap; /* Allow wrapping to next line if needed */
+    gap: 20px; /* Spacing between items */
+    font-family: "Europa-regular";
+    font-size: 14px;
+
+}
+
+.trip-input-row > div {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Spacing between label and input */
+}
+
+
+.trip-input-row label {
+    display: block; /* Makes the label take the full width of its container */
+    margin-bottom: 5px; /* Adds a small gap between the label and the input/select */
+}
+
+/* Specific adjustments for radio buttons */
+.trip-input-row input[type="radio"] {
+    margin-right: 1px;
+
+}
+
+.trip-input-row input[type="submit"] {
+    flex: none;
+}
+
+/* autocomplete decorators */
+
+.ui-autocomplete {
+  font-family: 'Europa-Light', sans-serif;
+  font-size: 13px;
+  border: 0px solid #333;           /* Custom border */
+}
+
+.ui-menu-item {
+  background-color: rgb(239, 248, 248);
+  font-family: 'Europa-Light', sans-serif;
+  font-size: 13px;
+  text-transform: Capitalize;
+  border: 0px;
+  }
+
+.ui-menu-item:hover {
+  background-color: #e0e0e0;        /* Background color for hovered item */
+}
+
+

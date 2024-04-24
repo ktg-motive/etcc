@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Travel Calculator</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{{ url_for('static', filename='js/air_travel.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ url_for('air_travel.static', filename='style.css') }}">
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+
+</head>
+<body>
+    <h1>Air Travel Calculator</h1>
+
+        <!-- Manual Input Form -->
+       <form id="trip-form">
+            <div class="trip-input-row">
+                <div>
+                    <label for="departure_city">Departure City:</label>
+                    <input type="text" id="departure_city" name="departure_city" required>
+                </div>
+                <div>
+                    <label for="arrival_city">Arrival City:</label>
+                    <input type="text" id="arrival_city" name="arrival_city" required>
+                </div>
+                <div>
+                    <label for="travel_class">Travel Class:</label>
+                    <select name="travel_class" required>
+                        <option value="Economy">Economy</option>
+                        <option value="Premium Economy">Premium Economy</option>
+                        <option value="Business">Business</option>
+                        <option value="First">First</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="num_travelers"># Travelers:</label>
+                    <input type="number" name="num_travelers" required>
+                </div>
+            </div>
+            <br>
+           <div class="trip-input-row">
+                <div>
+                    <label for="travel_type">Travel Type:</label>
+                    <input type="radio" id="one-way" name="travel_type" value="ONE-WAY" checked> One-way
+                    <input type="radio" id="roundtrip" name="travel_type" value="ROUNDTRIP"> Roundtrip
+                </div>
+                <!--<div>-->
+                    <!--<label for="distance_unit">Distance Unit:</label>-->
+                    <!--<input type="radio" id="miles" name="distance_unit" value="miles" checked> Miles-->
+                    <!--<input type="radio" id="kilometers" name="distance_unit" value="kilometers"> Kilometers-->
+                <!--</div>-->
+            </div><br>
+            <div class="trip-input-row">
+                <input type="submit" value="Add to Trip" class="button-rounded-trip">
+            </div>
+
+        </form>
+                    
+
+    <!-- Trips Table -->
+    <div class="trip-table-container">
+        <table id="trip-table">
+            <thead>
+                <tr>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Class</th>
+                    <th># Travelers</th>
+                    <th>Type</th>
+                    <th>Passenger Distance (KM)</th>
+                    <th>CO2 Emissions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Trips will be added here by JavaScript -->
+            </tbody>
+        </table>
+        <!-- Totals Section -->
+        <div class="total-container">
+            <h2>Totals</h2>
+            <p>Total Trips: <span id="total-trips">0</span></p>
+            <p>Total Distance Travelled (KM): <span id="total-distance">0</span></p>
+            <p>Total CO2 Emissions: <span id="total-emissions">0</span></p>
+        </div>
+        <!-- Calculate Total Button -->
+        <button onclick="calculateTotal();" class="button-rounded">Calculate Trip Totals</button>
+    </div>
+
+
+</body>
+</html>
